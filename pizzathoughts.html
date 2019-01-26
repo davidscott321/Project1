@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<head>
+  <meta charset="utf-8">
+  <title>Pizza Thoughts</title>
+  <!-- The viewport tag for mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- jQuery 3.3.1 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Ajax 1.14.3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <!-- Bootstrap 4.1.3 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <!-- Moment.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+</head>
+<body>
+  <!-- We need to figure out how to push down the header here to be below the header bar on the top of the webpage. Remove the <br> tags to see what I mean. -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="header"></div>
+  <div class = "container">
+    <div class="jumbotron" style="background-color: darkgrey ; color: white;">
+      <h1 class="text-center"><strong>Pizza Thoughts</strong></h1>
+    </div>
+    <div class = "add-comment">
+      <div class="card">
+        <div class="card-header">Comment Form</div>
+        <div class="card-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="name">Comment</label>
+              <input type="text" class="form-control" id="comment">
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit">Add Comment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class = "current-employee">
+      <div class="card">
+        <div class="card-header">
+          Comments
+        </div>
+        <div class="card-body postArea">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>    
+</body>
+<!-- Custom Javascript Document -->
+<script src="assets/JavaScript/app.js"></script>
+<!-- Custom Javascript Document -->
+<script src="assets/JavaScript/pizzathoughts.js"></script>
+</html>
