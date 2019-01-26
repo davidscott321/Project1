@@ -1,7 +1,10 @@
-body{
+/* ========================
+Pizza Lore main custom css
+======================== */
+
+body {
   background-color:red;
 }
-
-.jumbotron{
+.jumbotron {
   margin-top:170px;
 }
