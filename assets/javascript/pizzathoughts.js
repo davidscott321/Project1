@@ -1,5 +1,6 @@
-var name;
-var comment;
+
+var name = "";
+var comment = "";
 var timestamp;
 var likes = 0;
 var dislikes = 0;
@@ -44,21 +45,51 @@ $(".btn").on("click", function(event) {
     writeData();
 });
 
-// Write the code necessary to increment the like value of a specified child by 1 and then display on the page. This section will only update the database if you get it to work. After that you have to write code to display the code to the webpage similar to the database.ref().on() method below that displays when a child is added to the Firebase.
-$(".likeButton").on("click", function(event) {
-  // Grab current likes from the database using the child ID of the button that was just clicked and save it to the 'likes' variable in the file I.E. (likes = CHILD.likes)
-  // Increment the likes I.E. (likes++)
-  // Save the likes back to the database.
+// Likes 
+$(document).on("click", ".likeButton", function(event) {
+  likes++;
+ 
+  database.ref().update({
+    likes: likes
+  
+  });
+
+});
+//Dislikes
+$(document).on("click", ".dislikeButton", function(event) {
+  dislikes++;
+  
+  database.ref().update({
+    dislikes: dislikes
+
+  });
 
 });
 
-// Similar to the section above, you can copy and paste if you get that section figured out.
-$(".dislikeButton").on("click", function(event) {
-  // create code here
+database.ref().on("value", function(snapshot) {
+  console.log(snapshot.val());
+
+  likesCounter = snapshot.val().likesCount;
+  dislikesCounter = snapshot.val().dislikesCount;
+  
+
+  $("#click-value").text(snapshot.val().clickCount);
+}, function(errorObject) {
+  console.log("The read failed: " + errorObject.code);
 });
 
 // This displays a new row of data every time a child is added to the database.
 // We still need to figure out how to limit the number of comments that display after the 'add comment' button is clicked. We should not display an unlimited number of comments here.
 database.ref().on("child_added", function(snapshot) {
-  $(".postArea").append("<hr><div class='row'><div class='col-lg-3'><p>"+snapshot.val().name+"</p><p>"+snapshot.val().timestamp+"</p></div><div class='col-lg-6'>"+snapshot.val().comment+"</div><div class='col-lg-3'><button type='button' class='btn btn-secondary likeButton'>Like</button>&nbsp;&nbsp;Likes: "+snapshot.val().likes+"<br><button type='button' class='btn btn-secondary dislikeButton'>Dislike</button>&nbsp;&nbsp;Dislikes: "+snapshot.val().dislikes+"</div></div>");
+  // var newData = snapshot.val();
+  // console.log(newData, 'test')
+  
+  $(".postArea").append("<hr><div class='row'><div class='col-lg-3'><p>"
+    +snapshot.val().name+"</p><p>"
+    +snapshot.val().timestamp+"</p></div><div class='col-lg-6'>"
+    +snapshot.val().comment+"</div><div class='col-lg-3'><button type='button' class='btn btn-secondary likeButton'>Like</button>&nbsp;&nbsp;Likes: "
+    +snapshot.val().likes+"<br><button type='button' class='btn btn-secondary dislikeButton'>Dislike</button>&nbsp;&nbsp;Dislikes: "
+    +snapshot.val().dislikes+"</div></div>");
 });
+
+
