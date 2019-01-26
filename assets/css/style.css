@@ -1,7 +1,14 @@
-body{
+/* ========================
+Pizza Lore main custom css
+======================== */
+
+body {
   background-color:whitesmoke;
 }
-
-.jumbotron{
+.jumbotron {
   margin-top:170px;
+}
+
+.footer{
+  text-align: center;
 }
