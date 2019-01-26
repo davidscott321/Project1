@@ -1,3 +1,7 @@
 body{
-    background-color:red;
+  background-color:red;
+}
+
+.jumbotron{
+  margin-top:170px
 }
