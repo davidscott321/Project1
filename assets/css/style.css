@@ -2,13 +2,43 @@
 Pizza Lore main custom css
 ======================== */
 
+/* ----------------
+  General Elements
+----------------- */
 body {
-  background-color:whitesmoke;
+  background-color: whitesmoke;
 }
 .jumbotron {
-  margin-top:170px;
+  margin-top: 170px;
 }
-
 .footer{
   text-align: center;
+}
+.pad {
+  padding-top: 170px;
+  padding-bottom: 200px;
+}
+
+
+/* --------
+  Home Page
+--------- */
+
+/* Pizza Hero Section */
+.pizza-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
+  url(../images/pizza-hero.jpeg);
+  background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  color: white;
+}
+
+/* Pizza Content Section */
+.pizza-content {
+  background: whitesmoke;
+  background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  color: black;
 }
