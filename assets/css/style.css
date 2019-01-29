@@ -13,6 +13,7 @@ body {
 }
 .footer{
   text-align: center;
+  clear:both;
 }
 .pad {
   padding-top: 170px;
@@ -42,3 +43,16 @@ body {
 	background-size: cover;
   color: black;
 }
+
+/* Styles of Pizza content */
+#section{
+  margin-top:200px;
+  background-color:black;
+}
+
+#aside{
+  float:right;
+  margin-top:200px;
+}
+
+
