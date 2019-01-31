@@ -44,12 +44,6 @@ body {
 }
 
 /* Styles of Pizza content */
-#section{
-  margin-top:200px;
-  background-color:black;
-}
-
-#aside{
-  float:right;
-  margin-top:200px;
+.spacing{
+  margin-top:300px;
 }
