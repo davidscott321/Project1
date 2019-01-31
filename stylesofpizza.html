@@ -16,26 +16,30 @@
 <body>
 
   <div id="header"></div>
-    <h1 class="learnaboutstyles">Learn About the Styles</h1>
+  <div id="spacing"></div>
   <!--Remaining section-->
-  <div class="wrapper">
-      <div id="section">
-        <h4>Learn About The Styles</h4>
-          <h5 class="styles">Click one below</h5></li>
-          <a href="aside"><h6 class="chicagostyle">Chicago Style</h6></li></a>  
-          <a href="aside"><h6 class="detroitstyle">Detroit Style</h6></li></a>
-          <a href="aside"><h6 class="italianstyle">Italian Style</h6></li></a>
-          <a href="aside"><h6 class="newhavenstyle">New Haven Style</h6></li></a>
-          <a href="aside"><h6 class="newyorkstyle">New York Style</h6></li></a>
-          <a href="aside"><h6 class="quadcities">Quad Cities Style</h6></li></a>
-      </div>  
-      <div id="aside">
-        <h3>Blurbs about each each style</h4>
-          <h6 class="chicagopizza">The most famous is deep-dish pizza. The pan in which it is baked gives the pizza its characteristically high edge which gives a lot of space for large amounts of cheese and a chunky tomato sauce. Chicago-style pizza may be prepared in deep-dish style and as a stuffed pizza. Toppings typically in udnerneath the sauce.</h6>
-          
-      </div>  
-  </div>
-
+  <div class="row">
+      <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home"
+            role="tab" aria-controls="home">Home</a>
+          <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile"
+            role="tab" aria-controls="profile">Profile</a>
+          <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages"
+            role="tab" aria-controls="messages">Messages</a>
+          <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings"
+            role="tab" aria-controls="settings">Settings</a>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">AHAHHAHA</div>
+          <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Profile</div>
+          <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Messages</div>
+          <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Yooo</div>
+        </div>
+      </div>
+    </div>
 
 
   <div id="footer"></div>

@@ -46,26 +46,11 @@ body {
 
 /* Styles of Pizza content */
 .wrapper{
+  margin-top:500px;
   margin:auto;
   position:center;
 }
 
-/* h1{  
-  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/pizza-hero.jpeg);
-  background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-  color: white;
-} */
-
-#section{
-  margin-top:200px;
-  background-color:black;
-  float:left;
-}
-
-#aside{
-  float:right;
-  margin-top:200px;
+.spacing{
+  margin:100px;
 }
