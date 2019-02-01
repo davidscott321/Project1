@@ -1,78 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Chicago Pizza Finder</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" media="screen" href="test.css" />
-</head>
-<body>
-  <h1 class="text-center">Chicago Pizza Finder</h1>
-  <br>
-  <span class="errorMessage"></span>
-  <div class="contents">
-    <div class="jumbotron text-center">
-      <h2>Pick a neighborhood:</h2>
-      <br>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Neighborhood List
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item initial" href="#">Humboldt Park</a>
-          <a class="dropdown-item initial" href="#">Logan Square</a>
-          <a class="dropdown-item initial" href="#">Downtown</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <br>
-  <div class="results">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Restaurant Name</th>
-          <th scope="col">Address</th>
-          <th scope="col">Cuisines</th>
-          <th scope="col">Average Cost for Two</th>
-        </tr>
-      </thead>
-      <tbody class="zomatoResults">
-        <!-- <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr> -->
-      </tbody>
-      </table>
-  </div>
-  
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-  <!-- Moment.js CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
-  <!-- Script -->
-  <script>
-    $(".results").hide();
+$(".results").hide();
     $(".errorMessage").hide();
 
     var currentNeighborhood;
@@ -263,6 +189,3 @@
         }
       });
     } 
-  </script>
-</body>
-</html>
