@@ -1,5 +1,13 @@
-.jumbotron
-{
-  margin: 0px;
+div.transbox {
+  margin: 30px;
+  background-color: black;
+  border: 1px solid white;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
 }
-
+td a:hover{
+  color: white;
+}
+td a{
+  color: yellow;
+}

@@ -12,12 +12,12 @@
 <body>
   <div id="header"></div>
   <!--Remaining section-->
-  <h1 class="text-center pad white-text">Chicago Pizza Finder</h1>
+  <h1 class="text-center pad customPad white-text">Chicago Pizza Finder</h1>
   <br>
-  <div class="container">
+  <div class="container white-text">
     <span class="errorMessage"></span>
     <div class="contents">
-      <div class="jumbotron text-center">
+      <div class="text-center">
         <h2>Pick a neighborhood:</h2>
         <br>
         <div class="dropdown">
@@ -26,15 +26,20 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item initial" href="#">Humboldt Park</a>
-            <a class="dropdown-item initial" href="#">Logan Square</a>
+            <a class="dropdown-item initial" href="#">Wicker Park</a>
             <a class="dropdown-item initial" href="#">Downtown</a>
+            <a class="dropdown-item initial" href="#">Rogers Park</a>
+            <a class="dropdown-item initial" href="#">Austin</a>
+            <a class="dropdown-item initial" href="#">Brighton Park</a>
+            <a class="dropdown-item initial" href="#">Hyde Park</a>
           </div>
         </div>
       </div>
+      <br>
     </div>
     
     <br>
-    <div class="results">
+    <div class="results transbox">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -42,26 +47,10 @@
             <th scope="col">Address</th>
             <th scope="col">Cuisines</th>
             <th scope="col">Average Cost for Two</th>
+            <th scope="col">Average Rating</th>
           </tr>
         </thead>
-        <tbody class="zomatoResults">
-          <!-- <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr> -->
+        <tbody class="zomatoResults white-text">
         </tbody>
         </table>
     </div>
