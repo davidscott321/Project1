@@ -21,72 +21,18 @@ body {
   padding-top: 170px;
   padding-bottom: 50px;
 }
-
-.history{
-  background-color:black;
-  opacity: 0.5
-}
-
-.nontransparent{
-  opacity:1;
-  color: white;
-}
-
-/* --------
-  Home Page
---------- */
-
-/* Pizza Hero Section */
-.pizza-hero {
+.white-text {
   color: whitesmoke;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/pizza-ringballs.png); */
-  /* background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-  color: white;
-  margin-top:136px; */
 }
-/* .pizza-superhero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/Roman2.jpg);
-  /* background-position: center;
-	background-repeat: no-repeat;
-	background-size: auto;
+.box-bg {
+  background: rgba(0, 0, 0, 0.5);
   color: white;
-} */ */
-/* .pizza-villian {
-  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/NewYork.jpg);
-  background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100% 50%;
-  color: white;
-} */
-
-/* Pizza Content Section */
-.pizza-content {
-  background: whitesmoke;
-  background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-  color: black;
+  margin: 5%;
 }
 
 /* -------------------
   Styles of Pizza Page
 ------------------- */
-
-/* .styles-pizza {
-  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/pizza-delicious.jpg);
-  background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-  color: white;
-  height: 100px;
-  margin-bottom: 50px;
-} */
 
 /* Styles of Pizza content */
 .wrapper {
@@ -104,8 +50,7 @@ body {
   width: 200px;
 }
 
-.error
-{
+.error {
   color: red;
   text-align: right;
   padding: 0px 50px;
