@@ -1,5 +1,7 @@
-$(".results").hide();
-$(".errorMessage").empty();
+$( document ).ready(function() {
+  $(".results").hide();
+  $(".errorMessage").empty(); 
+});
 
 var currentNeighborhood;
 var lat;
@@ -164,18 +166,6 @@ function searchZomato()
   {
     queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=15&lat="+lat+"&lon="+lon+"&radius=200.00&cuisines=82&sort="+currentSort+"";
   }
-  else if(searchType==="sort")
-  {
-    queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=15&lat="+lat+"&lon="+lon+"&radius=200.00&cuisines=82&sort="+currentSort+"";
-  }
-  queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=15&lat="+lat+"&lon="+lon+"&radius=200.00&cuisines=82&sort="+currentSort+"";
-
-  queryURL = 
-  "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=15&lat=41.9088&lon=-87.6796&radius=200&cuisines=82&sort=rating&order=desc";
-
-  // https://developers.zomato.com/api/v2.1/search?apikey=970787db61d7cd3d75995d95ca6ad545&count=15&lat=41.9028&lon=-87.7071&radius=200.00&cuisines=82&sort=rating
-
-  // var queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=15&lat=41.9088&lon=-87.6796&radius=200&cuisines=82&sort=rating";
 
   $.ajax({
   url: queryURL,
