@@ -33,6 +33,22 @@ body {
 	background-size: cover;
   color: white;
 }
+.pizza-superhero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
+  url(../images/Roman.jpg);
+  background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  color: white;
+}
+.pizza-villian {
+  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
+  url(../images/NewYork.jpg);
+  background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  color: white;
+}
 
 /* Pizza Content Section */
 .pizza-content {
