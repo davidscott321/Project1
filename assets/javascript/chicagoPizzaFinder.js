@@ -201,7 +201,7 @@ function searchZomato()
 
   if(limitFlag===true)
   {
-    queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=200&lat="+lat+"&lon="+lon+"&radius=200&cuisines=82&sort="+currentSort+"&order="+currentOrder+"";
+    queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=1000&lat="+lat+"&lon="+lon+"&radius=200&cuisines=82&sort="+currentSort+"&order="+currentOrder+"";
 
     $.ajax({
       url: queryURL,
@@ -235,7 +235,7 @@ function searchZomato()
 
       for(var i=0;i<validRestaurants.length;i++)
       {
-        $(".resultsNumber").html("<br><p>Displaying Results "+validRestaurants[i].length+" out of "+response.results_found+"</p>");
+        $(".resultsNumber").html("<br><p>Displaying Results 15 out of "+response.results_found+"</p>");
         $(".zomatoResults").append("<tr>");
           $(".zomatoResults").append("<td><a href='"+validRestaurants[i].restaurant.url+"' target='_blank'>"+validRestaurants[i].restaurant.name+"</a></td>");
           $(".zomatoResults").append("<td>"+validRestaurants[i].restaurant.location.address+"</td>");
