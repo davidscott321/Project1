@@ -23,7 +23,7 @@ var database = firebase.database();
 function writeData() 
 {
   reference= $("#name").val().trim();
-  // this uses Moment.js to save the timestamp of the child being added. This is good to display when the comments were added.
+  // this uses Moment.js to save the timestamp of the child being added.
   timestamp = moment().format('MMMM Do YYYY, h:mm:ss a');
   
   var newData={
@@ -38,7 +38,6 @@ function writeData()
 }
 
 // When the add comment button is clicked, execute this code.
-// The last thing you have to add here is the code to clear the name and comment fields filled out by the user after they hit the 'add comment' button.
 $(".btn").on("click", function(event) {
     event.preventDefault();
 
@@ -48,7 +47,7 @@ $(".btn").on("click", function(event) {
     writeData();
 });
 
-//  When user click Likes 
+// Likes function
 
 $(document).on("click", ".likeButton", function(event) {
   likes++;
@@ -59,18 +58,17 @@ $(document).on("click", ".likeButton", function(event) {
   });
   $(".likesHolder[data='" + database.ref(name).name +"']").html(database.ref(name).likes);
 });
-//Dislikes
+
+//Dislikes function
 $(document).on("click", ".dislikeButton", function(event) {
-  // $(".dislikeButton[data='" + snapshot.val().name +"']");
+
   dislikes++;
  
-  
-
   database.ref(name).update({
     dislikes: dislikes
 
   });
-
+  $(".dislikesHolder[data='" + database.ref(name).name +"']").html(database.ref(name).dislikes);
 });
 
 database.ref().on("value", function(snapshot) {
@@ -86,7 +84,6 @@ database.ref().on("value", function(snapshot) {
 });
 
 // This displays a new row of data every time a child is added to the database.
-// We still need to figure out how to limit the number of comments that display after the 'add comment' button is clicked. We should not display an unlimited number of comments here.
 database.ref().on("child_added", function(snapshot) {
   // var newData = snapshot.val();
   // console.log(newData, 'test')
@@ -94,9 +91,7 @@ database.ref().on("child_added", function(snapshot) {
   $(".postArea").append("<hr><div class='row'><div class='col-lg-3'><p>"
     +snapshot.val().name+"</p><p>"
     +snapshot.val().timestamp+"</p></div><div class='col-lg-6'>"
-    +snapshot.val().comment+"</div><div class='col-lg-3'><button type='button' class='btn btn-secondary likeButton' data-id="+snapshot.val().name+">Like</button>&nbsp;&nbsp;Likes: <span class='likesHolder' data-id='"+snapshot.val().name+"'>"
-    +snapshot.val().likes+"</span><br><button type='button' class='btn btn-secondary dislikeButton'>Dislike</button>&nbsp;&nbsp;Dislikes: "
-    +snapshot.val().dislikes+"</div></div>");
+    +snapshot.val().comment+"</div><div class='col-lg-3'><button type='button' class='btn btn-secondary likeButton' data-id="+snapshot.val().name+">Like</button>&nbsp;&nbsp;Likes: <span class='likesHolder' data-id='"+snapshot.val().name+"'>"+snapshot.val().likes+"</span><br><button type='button' class='btn btn-secondary dislikeButton'data-id="+snapshot.val().name+">Dislike</button>&nbsp;&nbsp;Dislikes: <span class='dislikesHolder' data-id='"+snapshot.val().name+"'>"+snapshot.val().likes+"</span>");
 });
 
 
