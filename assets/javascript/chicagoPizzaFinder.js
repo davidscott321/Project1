@@ -216,7 +216,7 @@ function searchZomato()
   
       while(resultsDone===false)
       {
-        if(response.restaurants[i].restaurant.average_cost_for_two<=currentCustomSearch)
+        if(response.restaurants[i].restaurant.average_cost_for_two<=currentCustomSearch && response.restaurants[i].restaurant.average_cost_for_two>=0)
         {
           validRestaurants.push(response.restaurants[i]);
           count++;
