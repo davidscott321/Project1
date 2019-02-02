@@ -36,10 +36,26 @@ h1 {
 /* --------
   Home Page
 -------- */
-.info{
+.info {
   font-display: bold;
   font-size: 1.5rem;
-  padding-top: 100px;
+  /* padding-top: 100px; */
+}
+.pizza-index a {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+.pizza-index a:hover {
+  color: rgb(253, 253, 159);
+}
+
+.pizza-history a {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+.pizza-history a:hover {
+  /* color: rgb(253, 253, 159); */
+  color: blue;
 }
 
 /* -------------------
