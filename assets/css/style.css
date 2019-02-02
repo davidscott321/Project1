@@ -12,6 +12,7 @@ body {
 }
 h1 {
   margin: 50px;
+
 }
 .jumbotron {
   margin-top: 170px;
@@ -31,6 +32,9 @@ h1 {
   background: rgba(0, 0, 0, 0.5);
   color: white;
   margin: 5%;
+}
+.pthoughts {
+  color: white;
 }
 
 /* --------
