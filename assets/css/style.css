@@ -1,3 +1,85 @@
-body{
-    background-color:red;
+/* ========================
+Pizza Lore main custom css
+======================== */
+
+/* ----------------
+  General Elements
+----------------- */
+body {
+  background-color: whitesmoke;
+  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
+  url(../images/pizza-ringballs.png);
+}
+h1 {
+  margin: 50px;
+}
+.jumbotron {
+  margin-top: 170px;
+}
+.footer{
+  text-align: center;
+  clear:both;
+}
+.pad {
+  padding-top: 120px;
+  padding-bottom: s;
+}
+.white-text {
+  color: whitesmoke;
+}
+.box-bg {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  margin: 5%;
+}
+
+/* --------
+  Home Page
+-------- */
+.info {
+  font-display: bold;
+  font-size: 1.5rem;
+  /* padding-top: 100px; */
+}
+.pizza-index a {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+.pizza-index a:hover {
+  color: rgb(253, 253, 159);
+}
+
+.pizza-history a {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+.pizza-history a:hover {
+  /* color: rgb(253, 253, 159); */
+  color: blue;
+}
+
+/* -------------------
+  Styles of Pizza Page
+------------------- */
+
+/* Styles of Pizza content */
+.wrapper {
+  margin-top: 500px;
+  margin: auto;
+  position: center;
+}
+.spacing {
+  margin-top:100px;
+}
+.spacing2{
+  margin-bottom:100px;
+}
+.img-pizza-style {
+  height: auto;
+  width: 200px;
+}
+.error {
+  color: red;
+  text-align: right;
+  padding: 0px 50px;
 }

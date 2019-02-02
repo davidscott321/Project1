@@ -38,7 +38,6 @@ function writeData()
 }
 
 // When the add comment button is clicked, execute this code.
-// The last thing you have to add here is the code to clear the name and comment fields filled out by the user after they hit the 'add comment' button.
 $(".btn").on("click", function(event) {
     event.preventDefault();
 
@@ -71,7 +70,9 @@ $(document).on("click", ".dislikeButton", function(event) {
 
   });
 
-});
+  });
+  $(".dislikesHolder[data='" + database.ref(name).name +"']").html(database.ref(name).dislikes);
+// });
 
 database.ref().on("value", function(snapshot) {
   console.log(snapshot.val());
@@ -86,7 +87,6 @@ database.ref().on("value", function(snapshot) {
 });
 
 // This displays a new row of data every time a child is added to the database.
-// We still need to figure out how to limit the number of comments that display after the 'add comment' button is clicked. We should not display an unlimited number of comments here.
 database.ref().on("child_added", function(snapshot) {
   // var newData = snapshot.val();
   // console.log(newData, 'test')
