@@ -7,6 +7,9 @@ Pizza Lore main custom css
 ----------------- */
 body {
   background-color: whitesmoke;
+  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
+  url(../images/pizza-ringballs.png);
+  color: whitesmoke;
 }
 .jumbotron {
   margin-top: 170px;
@@ -16,9 +19,18 @@ body {
 }
 .pad {
   padding-top: 170px;
-  padding-bottom: 200px;
+  padding-bottom: 50px;
 }
 
+.history{
+  background-color:black;
+  opacity: 0.5
+}
+
+.nontransparent{
+  opacity:1;
+  color: white;
+}
 
 /* --------
   Home Page
@@ -26,27 +38,28 @@ body {
 
 /* Pizza Hero Section */
 .pizza-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/pizza-hero.jpeg);
-  background-position: center;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
+  url(../images/pizza-ringballs.png); */
+  /* background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
   color: white;
+  margin-top:136px; */
 }
 .pizza-superhero {
   background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/Roman.jpg);
-  background-position: center;
+  url(../images/Roman2.jpg);
+  /* background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: auto;
   color: white;
-}
+} */
 .pizza-villian {
   background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
   url(../images/NewYork.jpg);
   background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 50%;
   color: white;
 }
 
