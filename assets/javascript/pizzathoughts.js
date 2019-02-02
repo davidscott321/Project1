@@ -69,10 +69,9 @@ $(document).on("click", ".dislikeButton", function(event) {
     dislikes: dislikes
 
   });
-
-  });
   $(".dislikesHolder[data='" + database.ref(name).name +"']").html(database.ref(name).dislikes);
-// });
+  });
+ 
 
 database.ref().on("value", function(snapshot) {
   console.log(snapshot.val());
