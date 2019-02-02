@@ -10,6 +10,9 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
   url(../images/pizza-ringballs.png);
 }
+h1 {
+  margin: 50px;
+}
 .jumbotron {
   margin-top: 170px;
 }
@@ -18,7 +21,7 @@ body {
   clear:both;
 }
 .pad {
-  padding-top: 170px;
+  padding-top: 120px;
   padding-bottom: 50px;
 }
 .white-text {
@@ -28,6 +31,15 @@ body {
   background: rgba(0, 0, 0, 0.5);
   color: white;
   margin: 5%;
+}
+
+/* --------
+  Home Page
+-------- */
+.info{
+  font-display: bold;
+  font-size: 1.5rem;
+  padding-top: 100px;
 }
 
 /* -------------------
@@ -40,59 +52,18 @@ body {
   margin: auto;
   position: center;
 }
-
 .spacing {
-  margin-top:300px;
+  margin-top:100px;
 }
-
+.spacing2{
+  margin-bottom:100px;
+}
 .img-pizza-style {
   height: auto;
   width: 200px;
 }
-
 .error {
   color: red;
   text-align: right;
   padding: 0px 50px;
-}
-
-
-/* ------------------
-Magnific Popup Style
------------------- */
-/* padding-bottom and top for image */
-.mfp-no-margins img.mfp-img {
-        padding: 0;
-    }
-/* position of shadow behind the image */
-.mfp-no-margins .mfp-figure:after {
-        top: 0;
-        bottom: 0;
-    }
-/* padding for main container */
-.mfp-no-margins .mfp-container {
-        padding: 0;
-    }
-
-
-.mfp-with-zoom .mfp-container,
-.mfp-with-zoom.mfp-bg {
-    opacity: 0;
-    -webkit-backface-visibility: hidden;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-
-.mfp-with-zoom.mfp-ready .mfp-container {
-        opacity: 1;
-}
-.mfp-with-zoom.mfp-ready.mfp-bg {
-        opacity: 0.8;
-}
-
-.mfp-with-zoom.mfp-removing .mfp-container,
-.mfp-with-zoom.mfp-removing.mfp-bg {
-    opacity: 0;
 }
