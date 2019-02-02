@@ -42,3 +42,15 @@ body {
 	background-size: cover;
   color: black;
 }
+
+/* Styles of Pizza content */
+.spacing{
+  margin-top:300px;
+}
+
+.error
+{
+  color: red;
+  text-align: right;
+  padding: 0px 50px;
+}
