@@ -48,7 +48,6 @@ $(".btn").on("click", function(event) {
 });
 
 // Likes function
-<<<<<<< HEAD
 
 $(document).on("click", ".likeButton", function(event) {
   likes++;
@@ -72,31 +71,6 @@ $(document).on("click", ".dislikeButton", function(event) {
   $(".dislikesHolder[data='" + database.ref(name).name +"']").html(database.ref(name).dislikes);
 });
 
-=======
-
-$(document).on("click", ".likeButton", function(event) {
-  likes++;
- 
-  database.ref($(this).attr('data-id')).update({
-    likes: likes
-  
-  });
-  $(".likesHolder[data='" + database.ref(name).name +"']").html(database.ref(name).likes);
-});
-
-//Dislikes function
-$(document).on("click", ".dislikeButton", function(event) {
-
-  dislikes++;
- 
-  database.ref(name).update({
-    dislikes: dislikes
-
-  });
-  $(".dislikesHolder[data='" + database.ref(name).name +"']").html(database.ref(name).dislikes);
-});
-
->>>>>>> 4cf76af528cad4fa7738822f57a193c64c0f7385
 database.ref().on("value", function(snapshot) {
   console.log(snapshot.val());
 
