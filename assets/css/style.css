@@ -110,3 +110,8 @@ h1{
   font-size: x-large;
   padding:200px;
 }
+.card {
+  display: inline-flex;
+  left: 30px;
+  margin-bottom: 10px
+}
