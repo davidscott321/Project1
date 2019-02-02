@@ -47,22 +47,6 @@ body {
   color: white;
   margin-top:136px; */
 }
-/* .pizza-superhero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/Roman2.jpg);
-  /* background-position: center;
-	background-repeat: no-repeat;
-	background-size: auto;
-  color: white;
-} */ */
-/* .pizza-villian {
-  background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),
-  url(../images/NewYork.jpg);
-  background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100% 50%;
-  color: white;
-} */
 
 /* Pizza Content Section */
 .pizza-content {
@@ -111,6 +95,7 @@ body {
   padding: 0px 50px;
 }
 
+<<<<<<< HEAD
 
 /* ------------------
 Magnific Popup Style
@@ -151,3 +136,13 @@ Magnific Popup Style
 .mfp-with-zoom.mfp-removing.mfp-bg {
     opacity: 0;
 }
+=======
+.info{
+  text-align: center;
+  color: whitesmoke;
+  /* font-family: 'Courier New', Courier, monospace; */
+  font-display: bold;
+  font-size: x-large;
+  padding:200px;
+}
+>>>>>>> mike_frontend_branch
