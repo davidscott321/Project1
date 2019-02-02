@@ -12,13 +12,14 @@
 <body>
   <div id="header"></div>
   <!--Remaining section-->
-  <h1 class="text-center pad white-text">Chicago Pizza Finder</h1>
+  <h1 class="text-center pad customPad white-text">Chicago Pizza Finder</h1>
   <br>
-  <div class="container">
-    <span class="errorMessage"></span>
+  <div class="container white-text">
+    <h3 class="text-center instructions">
+      You can find your local Chicago pizza restaurant depending on which neighborhood in the city you in. Select the neighborhood nearest to you and see what happens!
+    </h3>
     <div class="contents">
-      <div class="jumbotron text-center">
-        <h2>Pick a neighborhood:</h2>
+      <div class="text-center">
         <br>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,15 +27,20 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item initial" href="#">Humboldt Park</a>
-            <a class="dropdown-item initial" href="#">Logan Square</a>
+            <a class="dropdown-item initial" href="#">Wicker Park</a>
             <a class="dropdown-item initial" href="#">Downtown</a>
+            <a class="dropdown-item initial" href="#">Rogers Park</a>
+            <a class="dropdown-item initial" href="#">Austin</a>
+            <a class="dropdown-item initial" href="#">Brighton Park</a>
+            <a class="dropdown-item initial" href="#">Hyde Park</a>
           </div>
         </div>
       </div>
+      <br>
     </div>
     
     <br>
-    <div class="results">
+    <div class="results transbox">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -42,30 +48,30 @@
             <th scope="col">Address</th>
             <th scope="col">Cuisines</th>
             <th scope="col">Average Cost for Two</th>
+            <th scope="col">Average Rating</th>
           </tr>
         </thead>
-        <tbody class="zomatoResults">
-          <!-- <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr> -->
+        <tbody class="zomatoResults white-text">
         </tbody>
         </table>
     </div>
   </div>
+  <!-- Modal for bad user input--> 
+  <div class="modal fade" id="myModal" role="dialog"> 
+      <div class="modal-dialog"> 
+      
+        <!-- Modal content--> 
+        <div class="modal-content"> 
+          <div class="modal-header"> 
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div> 
+          <div class="modal-body text-center"> 
+            <!-- <p>Some text in the modal.</p>  -->
+          </div>
+        </div> 
+        
+      </div> 
+    </div> 
   <div id="footer"></div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
