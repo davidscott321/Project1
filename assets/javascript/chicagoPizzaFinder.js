@@ -1,12 +1,11 @@
 $( document ).ready(function() {
   $(".results").hide();
-  $(".errorMessage").empty(); 
 });
 
 var currentNeighborhood;
 var lat;
 var lon;
-var customFlag = false;
+var limitFlag = false;
 var currentSort = "real_distance";
 var currentSortMessage = "Nearest Distance - Ascending";
 var currentOrder = "asc";
@@ -35,7 +34,6 @@ $(".initial").on("click", function(event) {
   displayContent();
   initiateClickListeners();
 
-  // $(".neighborhoodTitle").html(currentNeighborhood);
   displayAPIResults();
 });
 
@@ -80,27 +78,46 @@ function initiateClickListeners()
   });
 
   $(".priceSearch").on("click", function(event) {
-    currentCustomSearch = $("#inlineFormInput").val();
+    event.preventDefault();
+    currentCustomSearch = $("#inlineFormInput").val().trim();
 
     if(currentCustomSearch === "")
     {
-      $(".errorMessage").html("<p class='error'>Nothing has been entered in the text field. Please enter valid input.</p>");
-      $(".errorMessage").show();
-      
-      setTimeout(function(){$(".errorMessage").hide();},3000);
+      $(".modal-body").html("<p>You did not enter anything in the search bar. Please enter a whole dollar amount.</p>");
+      $("#myModal").modal();
+      limitFlag=false;
+      currentCustomSearch = "Enter a whole number in USD.";
+      $(".setCustomPlaceholder").html('<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="'+currentCustomSearch+'">');
     }
     else if(isNumeric(currentCustomSearch)===false)
     {
-
-      $(".errorMessage").html("<p class='error'>Please enter a whole number in the search field.</p>");
-      $(".errorMessage").show();
+      $(".modal-body").html("<p>Your input is not valid due to it not being a whole number. Please enter a whole dollar amount.</p>");
+      $("#myModal").modal();
+      limitFlag=false;
+      currentCustomSearch = "Enter a whole number in USD.";
+      $(".setCustomPlaceholder").html('<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="'+currentCustomSearch+'">');
+    }
+    else if(currentCustomSearch==="0")
+    {
+      $(".modal-body").html("<p>You entered zero(0). The max average has been removed as a filter.</p>");
+      $("#myModal").modal();
+      limitFlag=false;
+      currentCustomSearch = "Enter a whole number in USD.";
+      $(".setCustomPlaceholder").html('<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="'+currentCustomSearch+'">');
       
-      setTimeout(function(){$(".errorMessage").hide();},3000);
+    }
+    else if(currentCustomSearch.startsWith("0"))
+    {
+      $(".modal-body").html("<p>You started this number with a zero(0). Please enter a whole dollar amount.</p>");
+      $("#myModal").modal();
+      limitFlag=false;
+      currentCustomSearch = "Enter a whole number in USD.";
+      $(".setCustomPlaceholder").html('<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="'+currentCustomSearch+'">');
     }
     else
     {
-      priceLimit = currentCustomSearch;
-      currentCustomSearch = "Results include restaurants up to $"+number+".";
+      limitFlag=true;
+      displayAPIResults();
     }
   });
 }
@@ -116,16 +133,18 @@ function displayContent()
     <div class="row text-center">  \
       <div class="col-lg-4">  \
         <h4>Neighborhood: </h4> \
-        <div class=""> \
-          <div class="dropdown"> \
-            <button class="btn btn-secondary dropdown-toggle neighborhoodTitle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
-              '+currentNeighborhood+' \
-            </button> \
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> \
-              <a class="dropdown-item neighborhoodSelect" href="#">Humboldt Park</a> \
-              <a class="dropdown-item neighborhoodSelect" href="#">Logan Square</a> \
-              <a class="dropdown-item neighborhoodSelect" href="#">Downtown</a> \
-            </div> \
+        <div class="dropdown"> \
+          <button class="btn btn-secondary dropdown-toggle neighborhoodTitle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> \
+            '+currentNeighborhood+' \
+          </button> \
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> \
+            <a class="dropdown-item neighborhoodSelect" href="#">Humboldt Park</a> \
+            <a class="dropdown-item neighborhoodSelect" href="#">Logan Square</a> \
+            <a class="dropdown-item neighborhoodSelect" href="#">Downtown</a> \
+            <a class="dropdown-item neighborhoodSelect" href="#">Rogers Park</a> \
+            <a class="dropdown-item neighborhoodSelect" href="#">Austin</a> \
+            <a class="dropdown-item neighborhoodSelect" href="#">Brighton Park</a> \
+            <a class="dropdown-item neighborhoodSelect" href="#">Hyde Park</a> \
           </div> \
         </div> \
       </div> \
@@ -146,19 +165,21 @@ function displayContent()
         <h4>Max average cost for two people:</h4> \
         <form> \
           <div class="form-row align-items-center"> \
-            <div class="col-sm-9"> \
+            <div class="col-sm-9 setCustomPlaceholder"> \
               <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="'+currentCustomSearch+'"> \
             </div> \
             <div class="col-sm-2"> \
-                <button type="submit" class="btn btn-secondary mb-2 priceSearch">Submit</button> \
+                <button type="submit" class="btn btn-secondary mb-2 priceSearch" id="myBtn">Submit</button> \
             </div> \
           </div> \
         </form> \
       </div> \
     </div> \
-  </div>';
+  </div> \
+  <div class="resultsNumber text-center"></div> \
+  ';
 
-  $(".contents").html('<h2 class="text-center">Filter by one of the three categories below.</h2><br> \  ');
+  $(".instructions").html('There are additional filters on this page. You can search by neighborhood, distance/ratings, and by a maximum average cost for two people. Entering a zero(0) in the search field removes that filter from the search results.<br><br>');
   $(".contents").append(text);
 
   $(".results").show();
@@ -168,6 +189,7 @@ function displayAPIResults()
 {
   $(".neighborhoodTitle").html(currentNeighborhood);
   $(".sortTitle").html(currentSortMessage);
+  $(".setCustomPlaceholder").html('<input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="'+currentCustomSearch+'">');
 
   searchZomato();
   // googleMapsAPI();
@@ -177,38 +199,88 @@ function searchZomato()
 {
   $(".zomatoResults").html("");
 
-  queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=15&lat="+lat+"&lon="+lon+"&radius=200&cuisines=82&sort="+currentSort+"&order="+currentOrder+"";
+  if(limitFlag===true)
+  {
+    queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=200&lat="+lat+"&lon="+lon+"&radius=200&cuisines=82&sort="+currentSort+"&order="+currentOrder+"";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function(response) {
+      var validRestaurants = [];
+      var count = 0;
+      var resultsDone = false;
+      var i = 0;
   
-  $.ajax({
-  url: queryURL,
-  method: "GET"
-  })
-  // We store all of the retrieved data inside of an object called "response"
-  .then(function(response) {
-
-    // Log the queryURL
-    console.log(queryURL);
-
-    // Log the resulting object
-    console.log(response);
-
-    for(var i=0;i<response.restaurants.length;i++)
-    {
-      $(".zomatoResults").append("<tr>");
-        $(".zomatoResults").append("<td><a href='"+response.restaurants[i].restaurant.url+"' target='_blank'>"+response.restaurants[i].restaurant.name+"</a></td>");
-        $(".zomatoResults").append("<td>"+response.restaurants[i].restaurant.location.address+"</td>");
-        $(".zomatoResults").append("<td>"+response.restaurants[i].restaurant.cuisines+"</td>");
-        $(".zomatoResults").append("<td>"+response.restaurants[i].restaurant.average_cost_for_two+"</td>");
-        if(response.restaurants[i].restaurant.user_rating.aggregate_rating===0)
+      while(resultsDone===false)
+      {
+        if(response.restaurants[i].restaurant.average_cost_for_two<=currentCustomSearch)
         {
-          $(".zomatoResults").append("<td>No Rating</td>");
+          validRestaurants.push(response.restaurants[i]);
+          count++;
+          i++;
         }
         else
         {
-          $(".zomatoResults").append("<td>"+response.restaurants[i].restaurant.user_rating.aggregate_rating+"</td>");
+          i++;
         }
-        
-      $(".zomatoResults").append("</tr>");
-    }
-  });
+
+        if(count===15)
+        {
+          resultsDone=true;
+        }
+      }
+
+      for(var i=0;i<validRestaurants.length;i++)
+      {
+        $(".resultsNumber").html("<br><p>Displaying Results "+validRestaurants[i].length+" out of "+response.results_found+"</p>");
+        $(".zomatoResults").append("<tr>");
+          $(".zomatoResults").append("<td><a href='"+validRestaurants[i].restaurant.url+"' target='_blank'>"+validRestaurants[i].restaurant.name+"</a></td>");
+          $(".zomatoResults").append("<td>"+validRestaurants[i].restaurant.location.address+"</td>");
+          $(".zomatoResults").append("<td>"+validRestaurants[i].restaurant.cuisines+"</td>");
+          $(".zomatoResults").append("<td>"+validRestaurants[i].restaurant.average_cost_for_two+"</td>");
+          if(validRestaurants[i].restaurant.user_rating.aggregate_rating===0)
+          {
+            $(".zomatoResults").append("<td>No Rating</td>");
+          }
+          else
+          {
+            $(".zomatoResults").append("<td>"+validRestaurants[i].restaurant.user_rating.aggregate_rating+"</td>");
+          }
+        $(".zomatoResults").append("</tr>");
+      }
+    });
+  }
+  else
+  {
+    queryURL = "https://developers.zomato.com/api/v2.1/search?apikey="+APIKey+"&count=15&lat="+lat+"&lon="+lon+"&radius=200&cuisines=82&sort="+currentSort+"&order="+currentOrder+"";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function(response) {
+      for(var i=0;i<response.restaurants.length;i++)
+      {
+        $(".resultsNumber").html("<br><p>Displaying Results "+response.restaurants.length+" out of "+response.results_found+"</p>");
+        $(".zomatoResults").append("<tr>");
+          $(".zomatoResults").append("<td><a href='"+response.restaurants[i].restaurant.url+"' target='_blank'>"+response.restaurants[i].restaurant.name+"</a></td>");
+          $(".zomatoResults").append("<td>"+response.restaurants[i].restaurant.location.address+"</td>");
+          $(".zomatoResults").append("<td>"+response.restaurants[i].restaurant.cuisines+"</td>");
+          $(".zomatoResults").append("<td>"+response.restaurants[i].restaurant.average_cost_for_two+"</td>");
+          if(response.restaurants[i].restaurant.user_rating.aggregate_rating===0)
+          {
+            $(".zomatoResults").append("<td>No Rating</td>");
+          }
+          else
+          {
+            $(".zomatoResults").append("<td>"+response.restaurants[i].restaurant.user_rating.aggregate_rating+"</td>");
+          }
+        $(".zomatoResults").append("</tr>");
+      }
+    });
+  }
 } 

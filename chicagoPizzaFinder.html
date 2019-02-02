@@ -15,10 +15,11 @@
   <h1 class="text-center pad customPad white-text">Chicago Pizza Finder</h1>
   <br>
   <div class="container white-text">
-    <span class="errorMessage"></span>
+    <h3 class="text-center instructions">
+      You can find your local Chicago pizza restaurant depending on which neighborhood in the city you in. Select the neighborhood nearest to you and see what happens!
+    </h3>
     <div class="contents">
       <div class="text-center">
-        <h2>Pick a neighborhood:</h2>
         <br>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,6 +56,22 @@
         </table>
     </div>
   </div>
+  <!-- Modal for bad user input--> 
+  <div class="modal fade" id="myModal" role="dialog"> 
+      <div class="modal-dialog"> 
+      
+        <!-- Modal content--> 
+        <div class="modal-content"> 
+          <div class="modal-header"> 
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div> 
+          <div class="modal-body text-center"> 
+            <!-- <p>Some text in the modal.</p>  -->
+          </div>
+        </div> 
+        
+      </div> 
+    </div> 
   <div id="footer"></div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

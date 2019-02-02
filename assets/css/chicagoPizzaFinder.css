@@ -11,3 +11,12 @@ td a:hover{
 td a{
   color: yellow;
 }
+#myModal
+{
+  color: black;
+}
+p
+{
+  font-style: bold;
+  font-size: 17px;
+}
